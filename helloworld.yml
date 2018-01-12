@@ -1,0 +1,8 @@
+---
+
+- name: Quick test
+  hosts: all
+  tasks:
+    - name: Testing Authentication
+      debug:
+        msg: " Hello, Authentication worked fine "
