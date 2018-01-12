@@ -1,7 +1,7 @@
 ---
 
 - name: Quick test
-  hosts: all
+  hosts: htpc
   tasks:
     - name: Testing Authentication
       debug:
