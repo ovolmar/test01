@@ -6,3 +6,6 @@
     - name: Testing Authentication
       debug:
         msg: " Hello, Authentication worked fine "
+     
+    - name: Touching file
+      file: path=/tmp/oz.conf state=touch
