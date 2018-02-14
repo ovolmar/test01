@@ -5,7 +5,11 @@
   tasks:
     - name: Testing Authentication
       debug:
-        msg: " Hello, Authentication worked fine "
+        msg: " This is a test. PASSED!!!! "
      
-    - name: Touching file
-      file: path=/tmp/oz.conf state=touch
+    - name: Patch htpc
+      become: True
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid: yes
