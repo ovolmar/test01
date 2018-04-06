@@ -10,5 +10,5 @@
     - name: Patch htpc
       become: True
       apt:
-        name: "*"
+        name: gcc
         state: latest
