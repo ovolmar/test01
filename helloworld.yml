@@ -7,8 +7,12 @@
       debug:
         msg: " This is a test. PASSED!!!! "
      
-    - name: Patch htpc
+    - name: Updating main server
       become: True
-      apt:
-        name: gcc
-        state: latest
+      shell: apt-get clean
+      become_user: root
+      
+    - name: Additional Steps
+      shell: apt-get update
+      become: True
+      become_user: root
