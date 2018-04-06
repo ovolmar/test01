@@ -10,6 +10,5 @@
     - name: Patch htpc
       become: True
       apt:
-        upgrade: yes
-        update_cache: yes
-        cache_valid: yes
+        name: "*"
+        state: latest
