@@ -15,7 +15,7 @@
     - name: Updating main server
       become: True
       apt: name="*" state=latest
-      ignore_errors: True
+      force_apt_get: True
       
     - name: Additional Steps
       shell: apt-get update
