@@ -6,10 +6,15 @@
     - name: Testing Authentication
       debug:
         msg: " *** Patch Begins *** "
+        
+    - name: removing unused deps
+      apt:
+        autoremove: yes
      
     - name: Updating main server
       become: True
       apt: name="*" state=latest
+      ignore_errors: True
       
     - name: Additional Steps
       shell: apt-get update
