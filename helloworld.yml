@@ -17,5 +17,6 @@
       apt:
         update_cache: Yes
     - name: Patch my server
+      become: True
       apt:
         upgrade: dist
