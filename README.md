@@ -1,3 +1,4 @@
 # test01
 
-*** Testing my Ansible Project Scheduler ***
+*** Repo for some quick validation test ***
+
