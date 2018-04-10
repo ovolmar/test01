@@ -14,10 +14,5 @@
      
     - name: Updating main server
       become: True
-      apt: name="*" state=latest
-      force_apt_get: True
-      
-    - name: Additional Steps
-      shell: apt-get update
-      become: True
-      become_user: root
+      apt:
+        update_cache: Yes
