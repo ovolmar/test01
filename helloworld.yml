@@ -5,12 +5,11 @@
   tasks:
     - name: Testing Authentication
       debug:
-        msg: " This is a test. PASSED!!!! "
+        msg: " *** Patch Begins *** "
      
     - name: Updating main server
       become: True
-      shell: apt-get clean
-      become_user: root
+      apt: name="*" state=latest
       
     - name: Additional Steps
       shell: apt-get update
