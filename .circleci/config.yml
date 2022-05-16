@@ -10,11 +10,11 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo "Hello Bori"
-    print_world:
-      docker:
-        - image: circleci/node:13.8.0
-      steps:
-        - run: echo "cua"
+  print_world:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: echo "cua"
 
 
 workflows:
