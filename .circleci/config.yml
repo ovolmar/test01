@@ -15,6 +15,11 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo "cua"
+  print_myVar:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: echo $CIRCLE_USERNAME
 
 
 workflows:
@@ -25,3 +30,5 @@ workflows:
       - print_world:
           requires:
             - print_hello
+      - print_myVar:
+          
