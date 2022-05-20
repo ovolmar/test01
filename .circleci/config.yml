@@ -9,7 +9,7 @@ commands:
 jobs:
   a_job:
     docker:
-      - image: circleci/node13.8.0
+      - image: circleci/node
     steps:
       - print_pipeline_id
 
