@@ -1,35 +1,26 @@
-
 version: 2.1
-
-orbs:
-  welcome: circleci/welcome-orb@0.4.1
-
 jobs:
-  print_hello:
+  save_hello_world_output:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo "Hello Bori"
-  print_world:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - run: echo "cua"
-  print_myVar:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - run: echo $CIRCLE_USERNAME
+      - run: echo "Hello World" > output.txt
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - output.txt
 
-
-workflows:
-  welcome:
-    jobs:
-      
-      - welcome/run
-      - print_hello
-      - print_world:
-          requires:
-            - print_hello
-      - print_myVar
-          
+  print_out_file:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: cat ~/output.txt
+  workflows:
+    my_workflow:
+      jobs:
+        - save_hello_world_output
+        - print_out_file:
+            requires:
+              - save_hello_world_output
