@@ -13,7 +13,20 @@ jobs:
     steps:
       - print_pipeline_id
 
+  a_job_that_fails:
+    docker:
+      - circleci/node:13.8.0
+    steps: 
+      - run: exit 1 
+
+  run:
+    name: running when it fails and it hurts
+    command: |
+      echo " I ran because your other job failed "
+    when: on_fail
+    
 workflows:
   my_workflow:
     jobs:
       - a_job
+      - a_job_that_fails
