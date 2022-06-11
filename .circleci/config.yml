@@ -28,7 +28,7 @@ jobs:
             cat ~/env
 
 workflows:
-  default:
+  build:
     jobs:
       - save-file
 
