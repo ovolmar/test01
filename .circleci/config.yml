@@ -24,8 +24,6 @@ jobs:
       #       cat ~/env
 
 workflows:
-  version: 2
-  default:
     jobs:
       - save-file
 
