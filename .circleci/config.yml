@@ -14,14 +14,14 @@ jobs:
             TYPEORM_ENTITIES=./src/modules/domain/**/*.entity.ts
             TYPEORM_MIGRATIONS=./src/migrations/*.ts
             EOF
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - env
-      - run:
-          name: Get me the content of env
-          command: |
-            cat ~/env
+      # - persist_to_workspace:
+      #     root: ~/
+      #     paths:
+      #       - env
+      # - run:
+      #     name: Get me the content of env
+      #     command: |
+      #       cat ~/env
 
 workflows:
   default:
