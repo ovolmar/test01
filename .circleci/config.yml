@@ -18,16 +18,11 @@ jobs:
           root: ~/
           paths:
             - env
-
       - run:
           name: Get me the content of env
           command: |
             cat ~/env
 
-workflows:
-  my_workflow:
-    jobs:
-      - save-file
 
 # version: 2.1
 
