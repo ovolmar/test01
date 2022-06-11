@@ -1,7 +1,4 @@
 version: 2.1
-
-
-
 jobs:
   save-file:
     docker:
@@ -31,7 +28,6 @@ workflows:
   my_workflow:
     jobs:
       - save-file
-
 
 # version: 2.1
 
