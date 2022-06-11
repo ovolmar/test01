@@ -13,7 +13,7 @@ jobs:
       - run: 
           name: save a file with vars
           command: | 
-            cat \<< EOF >> env
+            cat \<< EOF >> ~/env
             ENVIRONMENT=production
             VERSION=1
             TYPEORM_CONNECTION=postgres
