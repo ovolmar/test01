@@ -24,10 +24,10 @@ jobs:
             cat ~/env
 
 workflows:
-  Example-Workflow:
+  default:
     jobs:
       - save-file
-      
+
 # version: 2.1
 
 
