@@ -9,7 +9,7 @@ jobs:
           name: This is not working
           command: | 
             echo " I like Gitlab Better "
-      # - checkout
+      - checkout
       # - command: | 
       #     cat \<< EOF >> env
       #       ENVIRONMENT=production
