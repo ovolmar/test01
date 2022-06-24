@@ -6,9 +6,9 @@ jobs:
       - image: python:3.7-alpine3.11
     steps:
       - run:
-          name: This is not working
+          name: This is one JOB.
           command: | 
-            echo " I like Gitlab Better "
+            echo " ++++ I like Gitlab Better ++++++"
       - checkout
       - run: 
           name: save a file with vars
@@ -29,6 +29,9 @@ jobs:
           name: Get me the content of env
           command: |
             cat ~/env
+            pwd 
+            ls -l 
+            stat ~/env 
 
 workflows:
   test-workflow:
