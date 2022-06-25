@@ -59,12 +59,10 @@ jobs:
       - run: 
           name: compressing a few files 
           command: |
-            sudo apt install unzip -y
+            sudo apt install unzip  ansible -y
             pwd
             ls     
-            tar -cvf atarball.tar  /root
-            rm -fv atarball.tar
-
+            ansible-playbook helloworld.yml 
 workflows:
   test-workflow:
     jobs:
