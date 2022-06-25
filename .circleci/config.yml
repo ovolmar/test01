@@ -76,8 +76,8 @@ jobs:
       - run:
           name: Checking the log
           command: |
-            ls /
-            sudo find / -name iphone.log
+            ls ~/
+        
 
 workflows:
   test-workflow:
