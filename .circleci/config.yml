@@ -67,7 +67,7 @@ jobs:
           name: installing a few deps
           command: |
             pwd
-            apk add --update ansible curl tar
+            apk add --update ansible curl sudo tar
             ls     
             ansible-playbook helloworld.yml 
       - attach_workspace:
