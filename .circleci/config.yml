@@ -23,9 +23,9 @@ jobs:
             TYPEORM_MIGRATIONS=./src/migrations/*.ts
             EOF
       - persist_to_workspace:
-          root: ~/
+          root: /tmp/workspace
           paths:
-            - env
+            - build/*
       - run:
           name: Get me the content of env
           command: |
@@ -33,11 +33,7 @@ jobs:
             pwd 
             ls -l 
             stat ~/env 
-            touch ~/iphone.log
-      - persist_to_workspace:
-          root: .
-          paths:
-            - "*"
+            touch build/iphone.log
     
   eat-popcorn:
     docker: 
@@ -71,13 +67,14 @@ jobs:
             ls     
             ansible-playbook helloworld.yml 
       - attach_workspace:
-          at: .
+          at: 
 
       - run:
           name: Checking the log
           command: |
             ls ~/
-        
+            ls /tmp -R
+                    
 
 workflows:
   test-workflow:
