@@ -44,9 +44,9 @@ jobs:
             - ~/my-cache
       - run:
           name: Getting some packages installed
-      command: |
-        sudo apt install unzip npm tar -y
-        echo "Who let the dogs out"
+          command: |
+            sudo apt install unzip npm tar -y
+            echo "Who let the dogs out"
   
   cleaner:
     docker: 
