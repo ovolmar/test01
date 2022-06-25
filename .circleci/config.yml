@@ -33,7 +33,7 @@ jobs:
             pwd 
             ls -l 
             stat ~/env 
-            touch iphone.log
+            touch ~/iphone.log
       - persist_to_workspace:
           root: .
           paths:
