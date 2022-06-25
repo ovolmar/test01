@@ -3,20 +3,23 @@
 - name: Quick test
   hosts: localhost
   tasks:
-    - name: Testing Authentication
-      debug:
-        msg: " *** Patch Begins *** "
+    - name: kicking off the tires 
+      block:
+        - name: Testing Authentication
+          debug:
+            msg: " *** Patch Begins *** "
+            
+        - name: removing unused deps
+          become: True
+          apt:
+            autoremove: yes
         
-    - name: removing unused deps
-      become: True
-      apt:
-        autoremove: yes
-     
-    - name: Updating main server
-      become: True
-      apt:
-        update_cache: Yes
-    - name: Patch my server
-      become: True
-      apt:
-        upgrade: dist
+        - name: Updating main server
+          become: True
+          apt:
+            update_cache: Yes
+        - name: Patch my server
+          become: True
+          apt:
+            upgrade: dist
+      when: ansible_os_family|lower == 'ubuntu'
