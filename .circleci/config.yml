@@ -56,7 +56,7 @@ jobs:
   cleaner:
     docker: 
       - image: python:3.7-alpine3.11
-    parallelism: 4
+    parallelism: 10
     steps:
       - checkout
       - restore_cache:
@@ -75,9 +75,9 @@ jobs:
       - run:
           name: Checking the log
           command: |
-            ls 
+            ls /
             find . -name iphone.log
-            
+
 workflows:
   test-workflow:
     jobs:
