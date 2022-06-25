@@ -76,7 +76,7 @@ jobs:
           name: Checking the log
           command: |
             ls /
-            find . -name iphone.log
+            sudo find / -name iphone.log
 
 workflows:
   test-workflow:
