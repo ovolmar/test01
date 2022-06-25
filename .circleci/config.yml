@@ -50,17 +50,17 @@ jobs:
   
   cleaner:
     docker: 
-      - image: cimg/base:2021.04
+      - image: python:3.7-alpine3.11
     steps:
       - checkout
       - restore_cache:
           keys: 
             - MyKey
       - run: 
-          name: compressing a few files 
+          name: installing a few deps
           command: |
-            sudo apt install unzip  ansible -y
             pwd
+            apk add --update ansible curl tar
             ls     
             ansible-playbook helloworld.yml 
 workflows:
