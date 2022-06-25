@@ -51,6 +51,7 @@ jobs:
   cleaner:
     docker: 
       - image: python:3.7-alpine3.11
+    parallelism: 4
     steps:
       - checkout
       - restore_cache:
