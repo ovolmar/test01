@@ -42,8 +42,10 @@ jobs:
           key: MyKey
           paths:
             - ~/my-cache
+      - run:
+          name: Getting some packages installed
       command: |
-        sudo apt install unzip npm -y
+        sudo apt install unzip npm tar -y
         echo "Who let the dogs out"
   
   cleaner:
@@ -54,10 +56,14 @@ jobs:
       - restore_cache:
           keys: 
             - MyKey
-      command: |
-        sudo apt install unzip npm -y
-        pwd
-        ls     
+      - run: 
+          name: compressing a few files 
+          command: |
+            sudo apt install unzip npm -y
+            pwd
+            ls     
+            tar -cvf atarball.tar  /root
+            rm -fv atarball.tar
 
 workflows:
   test-workflow:
