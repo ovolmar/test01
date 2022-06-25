@@ -32,12 +32,39 @@ jobs:
             pwd 
             ls -l 
             stat ~/env 
+    
+  eat-popcorn:
+    docker: 
+      - image: cimg/base:2021.04
+    steps:
+      - checkout
+      - save_cache:
+          key: MyKey
+          paths:
+            - ~/my-cache
+      command: |
+        sudo apt install unzip npm -y
+        echo "Who let the dogs out"
+  
+  cleaner:
+    docker: 
+      - image: cimg/base:2021.04
+    steps:
+      - checkout
+      - restore_cache:
+          keys: 
+            - MyKey
+      command: |
+        sudo apt install unzip npm -y
+        pwd
+        ls     
 
 workflows:
   test-workflow:
     jobs:
       - save-file
-
+      - eat-popcorn
+      - cleaner
 # version: 2.1
 
 
