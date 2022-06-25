@@ -32,6 +32,11 @@ jobs:
             pwd 
             ls -l 
             stat ~/env 
+            touch iphone.log
+      - persist_to_workspace:
+          root: .
+          paths:
+            - "*"
     
   eat-popcorn:
     docker: 
@@ -64,6 +69,15 @@ jobs:
             apk add --update ansible curl tar
             ls     
             ansible-playbook helloworld.yml 
+      - attach_workspace:
+          at: .
+
+      - run:
+          name: Checking the log
+          command: |
+            ls 
+            find . -name iphone.log
+            
 workflows:
   test-workflow:
     jobs:
