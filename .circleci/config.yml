@@ -22,18 +22,6 @@ jobs:
             TYPEORM_ENTITIES=./src/modules/domain/**/*.entity.ts
             TYPEORM_MIGRATIONS=./src/migrations/*.ts
             EOF
-      - persist_to_workspace:
-          root: /tmp/workspace
-          paths:
-            - build/*
-      - run:
-          name: Get me the content of env
-          command: |
-            cat ~/env
-            pwd 
-            ls -l 
-            stat ~/env 
-            touch build/iphone.log
     
   eat-popcorn:
     docker: 
@@ -50,7 +38,7 @@ jobs:
             sudo apt install unzip tar -y
             echo "Who let the dogs out"
   
-  cleaner:
+  hit-target:
     docker: 
       - image: python:3.7-alpine3.11
     parallelism: 2
@@ -59,29 +47,27 @@ jobs:
       - restore_cache:
           keys: 
             - MyKey
-      - run: 
-          name: installing a few deps
-          command: |
-            pwd
-            apk add --update ansible curl sudo tar
-            ls     
-            ansible-playbook helloworld.yml 
-      - attach_workspace:
-          at: /
-
+      - add_ssh_keys:
+          fingerprints: 
+            - 'ae:9a:e0:ba:57:25:4e:55:2e:7f:61:38:b3:5a:6f:e8'
       - run:
-          name: Checking the log
+          name: Install dependencies
           command: |
-            ls ~/
-            ls /tmp -R
-                    
+            apk add --update ansible openssh-client tar gzip curl nodejs npm
+      - run:
+          name: Deploy backend
+          no_output_timeout: 20m
+          command: |
+            ansible-playbook -i inventory.txt fleetcmdr.yml
+            
+
 
 workflows:
   test-workflow:
     jobs:
       - save-file
       - eat-popcorn
-      - cleaner
+      - hit-target
 # version: 2.1
 
 
