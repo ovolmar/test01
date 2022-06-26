@@ -64,6 +64,7 @@ jobs:
           name: "Missile Launch ... Destroy Destroy"
           no_output_timeout: 20m
           command: |
+            ssh-keyscan -H 54.146.211.150 >> ~/.ssh/known_hosts
             cd .circleci/ansible
             ansible-playbook -i inventory.txt fleetcmdr.yml
             
