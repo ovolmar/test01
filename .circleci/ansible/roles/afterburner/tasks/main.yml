@@ -3,7 +3,7 @@
 - name: loading missiles
   copy:
     src: missiles.tar
-    dest: /home/ubuntu
+    dest: /home/ec2-user
 
 - name: prepare the target
   unarchive:
