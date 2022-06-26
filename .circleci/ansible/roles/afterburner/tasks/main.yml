@@ -7,6 +7,6 @@
 
 - name: prepare the target
   unarchive:
-    src: /home/ubuntu/missiles.tar
+    src: missiles.tar
     dest: /home/ec2-user/
 
