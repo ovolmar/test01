@@ -51,6 +51,8 @@ jobs:
           root: ~/
           paths:
             - project/.circleci/ansible
+      - attach_workspace:
+          at: ~/
       - add_ssh_keys:
           fingerprints: 
             - 'ae:9a:e0:ba:57:25:4e:55:2e:7f:61:38:b3:5a:6f:e8'
@@ -62,7 +64,7 @@ jobs:
           name: "Missile Launch ... Destroy Destroy"
           no_output_timeout: 20m
           command: |
-            cd project/.circleci/ansible
+            cd .circleci/ansible
             ansible-playbook -i inventory.txt fleetcmdr.yml
             
 
