@@ -47,10 +47,10 @@ jobs:
       - restore_cache:
           keys: 
             - MyKey
-      # - persist_to_workspace:
-      #     root: ~/
-      #     paths:
-      #       - project/.circleci/ansible/inventory.txt
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - project/.circleci/
       - add_ssh_keys:
           fingerprints: 
             - 'ae:9a:e0:ba:57:25:4e:55:2e:7f:61:38:b3:5a:6f:e8'
