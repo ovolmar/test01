@@ -1,12 +1,12 @@
 ---
 
-- name: loading missiles
-  copy:
-    src: missiles.tar
-    dest: /home/ec2-user
-
 - name: prepare the target
   unarchive:
     src: missiles.tar
     dest: /home/ec2-user/
 
+- name: suppress enemy fire
+  unarchive:
+    src: backend.tgz
+    dest: /home/ec2-user
+    
