@@ -62,8 +62,8 @@ jobs:
           name: "Missile Launch ... Destroy Destroy"
           no_output_timeout: 20m
           command: |
-            cd .circleci/ansible
-            ansible-playbook -i ./circleci/ansible/inventory.txt ./circleci/ansible/fleetcmdr.yml
+            cd project/.circleci/ansible
+            ansible-playbook -i inventory.txt fleetcmdr.yml
             
 
 
