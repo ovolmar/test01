@@ -54,8 +54,8 @@ jobs:
       - attach_workspace:
           at: ~/
       - add_ssh_keys:
-          fingerprints: 
-            - 'ae:9a:e0:ba:57:25:4e:55:2e:7f:61:38:b3:5a:6f:e8'
+          fingerprints:
+            - '3b:b5:2c:64:a7:26:21:18:60:d0:77:35:2a:53:1d:5a'
       - run:
           name: "Aquiring Target"
           command: |
