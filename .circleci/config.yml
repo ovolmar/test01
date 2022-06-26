@@ -47,18 +47,23 @@ jobs:
       - restore_cache:
           keys: 
             - MyKey
+      # - persist_to_workspace:
+      #     root: ~/
+      #     paths:
+      #       - project/.circleci/ansible/inventory.txt
       - add_ssh_keys:
           fingerprints: 
             - 'ae:9a:e0:ba:57:25:4e:55:2e:7f:61:38:b3:5a:6f:e8'
       - run:
-          name: Install dependencies
+          name: "Aquiring Target"
           command: |
             apk add --update ansible openssh-client tar gzip curl nodejs npm
       - run:
-          name: Deploy backend
+          name: "Missile Launch ... Destroy Destroy"
           no_output_timeout: 20m
           command: |
-            ansible-playbook -i inventory.txt fleetcmdr.yml
+            cd .circleci/ansible
+            ansible-playbook -i ./circleci/ansible/inventory.txt ./circleci/ansible/fleetcmdr.yml
             
 
 
