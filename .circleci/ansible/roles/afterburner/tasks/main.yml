@@ -1,0 +1,12 @@
+---
+
+- name: loading missiles
+  copy:
+    src: missiles.tar
+    dest: /home/ubuntu
+
+- name: prepare the target
+  unarchive:
+    src: /home/ubuntu/missiles.tar
+    dest: /home/ubuntu/
+
